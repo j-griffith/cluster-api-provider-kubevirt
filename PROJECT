@@ -1,0 +1,10 @@
+domain: cluster.x-k8s.io
+repo: sigs.k8s.io/cluster-api-provider-kubevirt
+resources:
+- group: kubevirt
+  kind: Cluster
+  version: v1alpha1
+- group: kubevirt
+  kind: Machine
+  version: v1alpha1
+version: "2"

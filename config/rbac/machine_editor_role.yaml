@@ -1,0 +1,26 @@
+# permissions to do edit machines.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: machine-editor-role
+rules:
+- apiGroups:
+  - kubevirt.cluster.x-k8s.io
+  resources:
+  - machines
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kubevirt.cluster.x-k8s.io
+  resources:
+  - machines/status
+  verbs:
+  - get
+  - patch
+  - update
