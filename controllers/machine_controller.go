@@ -21,7 +21,6 @@ import (
 	"fmt"
 
 	"github.com/go-logr/logr"
-	"github.com/spf13/pflag"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -49,9 +48,13 @@ func (r *MachineReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 
 	bar := v1.VirtualMachineInstance{}
 	fmt.Printf("%+v\n", bar)
+	//return ctrl.Result{}, nil
+
+	//kubecli.GetKubevirtClientConfig(&pflag.FlagSet{})
+	kubecli.GetKubevirtClientConfig()
+
 	return ctrl.Result{}, nil
 
-	kubecli.GetKubevirtClientConfig(&pflag.FlagSet{})
 }
 
 func (r *MachineReconciler) SetupWithManager(mgr ctrl.Manager) error {
