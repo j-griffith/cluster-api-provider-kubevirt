@@ -26,6 +26,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
 	v1 "kubevirt.io/client-go/api/v1"
+	"kubevirt.io/client-go/kubecli"
 	kubevirtv1alpha1 "sigs.k8s.io/cluster-api-provider-kubevirt/api/v1alpha1"
 )
 
@@ -47,7 +48,13 @@ func (r *MachineReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 
 	bar := v1.VirtualMachineInstance{}
 	fmt.Printf("%+v\n", bar)
+	//return ctrl.Result{}, nil
+
+	//kubecli.GetKubevirtClientConfig(&pflag.FlagSet{})
+	kubecli.GetKubevirtClientConfig()
+
 	return ctrl.Result{}, nil
+
 }
 
 func (r *MachineReconciler) SetupWithManager(mgr ctrl.Manager) error {
